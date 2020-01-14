@@ -1,0 +1,22 @@
+{
+  "pages": [ 
+    "pages/register/register",
+    "pages/index/index",   
+    "pages/PartnerEvaluate/PartnerEvaluate",
+    "pages/PartnerDetail/PartnerDetail",
+    "pages/SingleEvaluate/SingleEvaluate",
+    "pages/SingleDetail/SingleDetail",
+    "pages/Checking/Checking",
+    "pages/CheckingDetail/CheckingDetail",
+    "pages/LifeCycle/LifeCycle",
+    "pages/LifeDetail/LifeDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

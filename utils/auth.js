@@ -1,0 +1,50 @@
+//登录授权
+import config from './config.js';
+
+//登录
+function login (){
+  // 返回一个Promise实例对象
+  return new Promise((resolve, reject) => {
+    wx.login({
+      success: res => {
+        if (res.code) {
+          wx.showLoading({ title: '登陆中...', icon: 'none', mask: true });
+          // 登录接口地址
+          wx.request({
+            url: config.baseUrl + 'tool/user/login',
+            data: {
+              code: res.code
+            },
+            method: 'POST',
+            header: {
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            success: res => {
+              wx.hideLoading();
+              resolve(res)
+              // 如果未注册跳转到注册页
+              if (res.data.data.status!=1) {
+                wx.redirectTo({
+                  url: '../register/register',
+                })
+                return;
+              }
+              wx.setStorageSync('user_info', res.data.data)
+              if (getCurrentPages().length != 0) {
+                //刷新当前页面的数据
+                getCurrentPages()[getCurrentPages().length - 1].onLoad()
+              }else{
+                wx.redirectTo({
+                  url: '../index/index',
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+  })
+}
+module.exports = {
+  login: login,
+}

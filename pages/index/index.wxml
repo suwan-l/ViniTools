@@ -1,0 +1,23 @@
+<!-- banner轮播 ↓-->
+<view class="swiper">
+  <swiper class="swiper-conn" indicator-dots="true" autoplay="true" interval="5000" duration="500" indicator-color="rgba(225, 225, 225, .5)" indicator-active-color="#fff">
+    <block wx:for='{{bannerImg}}' wx:key=''>
+      <swiper-item><image src="{{item.img}}"></image></swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- banner轮播 ↑-->
+
+<!-- 应用导航 ↓ -->
+<view class="conn">
+  <text class="title">应用</text>
+  <view class="list">
+    <view class="listLi" bindtap='navigateToPage' wx:for='{{navList}}' wx:key='' id='{{item.id}}'>
+      <view class="item">
+        <view class="listImg"><image src="{{item.listImg}}"></image></view>
+        <text class="listName">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 应用导航 ↑-->

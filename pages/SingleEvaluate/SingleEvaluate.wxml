@@ -1,0 +1,21 @@
+<view class="container">
+  <image class='logo' src="https://evathumber.vinistyle.cn/upload/201912/20191231125024166.png"></image>
+  <view class="conn">
+    <text class="title">薇妮门店360评估</text>
+    <view class="section">
+      <picker bindchange="bindPickerChange" value="{{arrayIdx}}" range="{{stores}}" range-key="name">
+        <view class="picker">
+          <input placeholder="门 店" value="{{stores[arrayIdx].name}}"></input>
+        </view>
+      </picker>
+    </view>
+    <view class="section">
+      <picker bindchange="bindDateChange" value="{{dataIdx}}" range="{{quarters}}">
+        <view class="picker">
+          <input placeholder="考核日期" value="{{quarters[dataIdx]}}"></input>
+        </view>
+      </picker>
+    </view>
+    <button class="enquiry" bindtap="enquiryBtn">查询</button> 
+  </view>
+</view>
